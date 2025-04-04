@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 from statsmodels.tsa.api import SimpleExpSmoothing
 from sklearn.metrics import mean_squared_error
+import streamlit as st
 
 @st.cache_data
 def extraction_m2(data):

@@ -9,8 +9,13 @@ import streamlit as st
 @st.cache_data  
 def m7_prophet(data):
     st.markdown("<h3 style='color: cyan;'>M7: Prophet Model</h3>", unsafe_allow_html=True)
-    st.write("Prophet is a forecasting tool created by Facebook, designed to handle time series data that may have missing values and seasonal effects. It is particularly effective for daily observations with strong seasonal patterns.")
-    
+    st.markdown("""
+    This **forecasting tool developed by Facebook** is designed to handle time series data, especially in the context of stock prices.
+    - **Handles trends, seasonality, and holidays** automatically.  
+    - Works great even with **missing data** or **outliers**.  
+    - Simple to use but powerful enough for real-world stock forecasting.
+    - Useful for **long-term planning** and **understanding season-driven market behaviors**.
+    """)    
     df_copy = data.copy()
     df_copy['Date'] = pd.to_datetime(df_copy['Date'])
     df_copy.set_index('Date', inplace=True)

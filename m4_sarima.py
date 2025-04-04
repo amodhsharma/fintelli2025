@@ -12,7 +12,20 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score, m
 @st.cache_data
 def m4_sarima(data, order=(1, 1, 1), seasonal_order=(1, 1, 1, 12)):
     st.markdown("<h3 style='color: cyan;'>M4: SARIMA - Seasonal Autoregressive Integrated Moving Average</h3>", unsafe_allow_html=True)
-    st.write("SARIMA is an extension of ARIMA that supports seasonal differencing. It is particularly useful for time series data with seasonal patterns.")
+    st.markdown(""" 
+    SARIMA is an extension of ARIMA that accounts for **seasonality** in time series forecasting. It adds seasonal components to the standard ARIMA model, making it useful for datasets with recurring patterns.  
+
+    SARIMA is defined by six parameters:  
+
+    - **p** → Number of lag observations (autoregressive order).  
+    - **d** → Number of times the data is differenced to remove trends.  
+    - **q** → Size of the moving average window.  
+    - **P** → Seasonal autoregressive order.  
+    - **D** → Seasonal differencing order to remove seasonal trends.  
+    - **Q** → Seasonal moving average order.  
+
+    The seasonal component is applied over a **fixed period (m)**, such as 12 months for yearly patterns or 7 days for weekly trends.  
+    """)
     
     df_copy = data.copy()
     df_copy['Date'] = pd.to_datetime(df_copy['Date'])

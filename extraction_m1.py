@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np 
+import streamlit as st
 
 @st.cache_data
 def extraction_m1(data):

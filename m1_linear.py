@@ -9,13 +9,18 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 @st.cache_data
 def process_and_train_model(data):
     st.markdown("<h1 style='color: cyan;'>Traditional Regression & Statistical Models</h1>", unsafe_allow_html=True),
+    st.write("Traditional Regression Models predict stock prices using mathematical formulas, offering precise forecasts but struggling with sudden market changes.")
+    st.write("Linear regression is easy to understand, ARIMA/SARIMA help with structured forecasting, and exponential smoothing is great for adapting to recent trends.")
     st.markdown("<h3 style='color: cyan;'>M1: Linear Regression Model</h3>", unsafe_allow_html=True),
     st.write("Linear Regression is a fundamental supervised machine learning algorithm used for modeling the relationship between a dependent variable (target) and one or more independent variables (predictors).")
     st.latex(r"y = mx + c")
-    st.write("Y → Dependent variable (Target) → The value we want to predict (e.g., future stock price).")
-    st.write("X → Independent variable (Predictor) → The input used to predict Y (e.g., time, past stock prices).")
-    st.write("m → Slope (Coefficient) → Represents how much Y changes when X increases by 1 unit.")
-    st.write("c → Y-intercept → The value of Y when X is zero.")
+    st.markdown("""
+    - **Y → Dependent Variable (Target)** → The value we want to predict (e.g., future stock price).  
+    - **X → Independent Variable (Predictor)** → The input used to predict Y (e.g., time, past stock prices).  
+    - **m → Slope (Coefficient)** → Represents how much Y changes when X increases by 1 unit.  
+    - **c → Y-intercept** → The value of Y when X is zero.  
+    """)
+
 
     df_copy = data.copy()
     df_copy['Date'] = pd.to_datetime(df_copy['Date'])

@@ -12,7 +12,12 @@ def m8_lstm(data):
     st.markdown("<h1 style='color: cyan;'>Deep Learning for Time Series</h1>", unsafe_allow_html=True),
     st.markdown("<h3 style='color: cyan;'>M8: LSTM Model</h3>", unsafe_allow_html=True),
     st.write("LSTM is a type of Recurrent Neural Network (RNN) designed to capture long-term dependencies in sequential data. It is particularly useful for tasks like time series forecasting, natural language processing, and stock market prediction.")
-
+    st.markdown("""
+    LSTM (Long Short-Term Memory) is a **powerful deep learning model** designed to **analyze sequential data**, making it great for stock price prediction.
+    - Unlike traditional models, LSTM can **remember past trends and patterns** for better future predictions. 
+    - Handles **long-term dependencies**, meaning it can learn from past stock movements over weeks or months.  
+    - Works well for **highly volatile markets**, where short-term fluctuations impact future prices.
+    """)
     df_copy = data.copy()
     df_copy['Date'] = pd.to_datetime(df_copy['Date'])
     df_copy.set_index('Date', inplace=True)

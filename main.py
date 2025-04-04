@@ -152,10 +152,40 @@ st.divider()
 from future_lstm import future_lstm
 future_lstm(data)
 st.divider()
-
-# from extraction_m8 import extraction_m8
-# rmse, last_actual_price, last_predicted_price = extraction_m8(data)
-# st.write(f"RMSE: {rmse:.2f}")
-# st.write(f"Last Actual Price: ₹{last_actual_price:.2f}")
-# st.write(f"Last Predicted Price: ₹{last_predicted_price:.2f}")
 # --------------------------------------------------------------- 
+
+from buy_sell import process_models
+decisions = process_models(data)
+
+# Convert the dictionary to a pandas DataFrame
+df = pd.DataFrame.from_dict(decisions, orient='index')
+df.index.name = "Models" #first column is model names
+
+df["Price Difference"] = df["Predicted"] - df["Actual"]
+df.rename(columns={"RMSE": "Calculated RMSE"}, inplace=True)
+
+# Format numeric columns (optional, but makes it more readable)
+df["Calculated RMSE"] = df["Calculated RMSE"].apply(lambda x: f"{x:.2f}")
+df["Actual"] = df["Actual"].apply(lambda x: f"₹{x:.2f}")
+df["Predicted"] = df["Predicted"].apply(lambda x: f"₹{x:.2f}")
+df["Price Difference"] = df["Price Difference"].apply(lambda x: f"₹{x:.2f}")
+
+st.markdown("Model Comparison Table with RMSE and Price Difference")
+st.dataframe(df, use_container_width=True)
+
+st.divider()
+# --------------------------------------------------------------- 
+#implementing final buy sell decision
+from buy_sell_decision import weighted_decision
+final_decision, score = weighted_decision(data)
+
+# Display in Streamlit
+st.markdown("`Final Decision based on technical analysis`")
+st.metric(label="", value=final_decision)
+st.write(f"Weighted Score: `{score:.4f}`")
+
+# --------------------------------------------------------------- 
+
+with st.container():
+    st.markdown("---")
+    st.markdown("<p style='text-align: center; color: gray;'>April 2025 Fintelli | Built with attention to detail and devotion using Streamlit</p>", unsafe_allow_html=True)

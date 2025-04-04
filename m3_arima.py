@@ -11,11 +11,20 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score, m
 @st.cache_data
 def m3_arima(data, order=(6,1,0)):
     st.markdown("<h3 style='color: cyan;'>M3: ARIMA - Autoregressive Integrated Moving Average", unsafe_allow_html=True),
-    st.write("ARIMA is a popular statistical method for time series forecasting. It combines autoregression (AR), differencing (I), and moving average (MA) components.")
-    st.write("ARIMA models are characterized by three parameters: p, d, and q.")
-    st.write("p: The number of lag observations included in the model (lag order).")
-    st.write("d: The number of times that the raw observations are differenced (degree of differencing).")
-    st.write("q: The size of the moving average window (order of moving average).")
+    st.markdown("""
+    ARIMA is a widely used statistical method for **time series forecasting**, combining three components:  
+
+    - **AR (Autoregression)** → Uses past values to predict future values.  
+    - **I (Integration/Differencing)** → Makes the series stationary by removing trends.  
+    - **MA (Moving Average)** → Models the relationship between an observation and residual errors.  
+
+    ARIMA is defined by three parameters:  
+
+    - **p** → Number of lag observations (lag order).  
+    - **d** → Number of times the data is differenced to remove trends.  
+    - **q** → Size of the moving average window.  
+    """)
+
     #st.write("Decomposition plots for Arima")
     #decomposition = seasonal_decompose(train['Close'], model='additive', period=30)
     # fig, axes = plt.subplots(3, 1, figsize=(10, 6))

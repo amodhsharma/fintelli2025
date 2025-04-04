@@ -5,7 +5,7 @@ import plotly.graph_objects as go
 @st.cache_data
 def eda_volatility(data):
     st.markdown("<h3 style='color: cyan;'>EDA: Stock Price Volatility</h3>", unsafe_allow_html=True)
-    st.write("The degree of variation in a stock's price over time, often measured by standard deviation or the average absolute change in price. 30-day volatility tracks price fluctuations over the past month, while 90-day volatility captures price movements over a three-month period, helping you assess short-term versus medium-term risk.")
+    st.write("Stock price volatility measures the degree of variation in stock prices over time. High volatility signals higher risk but also potential high returns, making it a key factor for financial advisors in portfolio diversification, risk assessment, and options trading strategies.")
     
     df_copy = data.copy()
     df_copy['Date'] = pd.to_datetime(df_copy['Date'])

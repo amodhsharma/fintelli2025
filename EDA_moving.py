@@ -5,7 +5,10 @@ import streamlit as st
 @st.cache_data
 def eda_moving(data):
     st.markdown("<h3 style='color: cyan;'>EDA: Moving Averages</h3>", unsafe_allow_html=True)
-    st.write("Moving average smooths out price fluctuations by averaging prices over a set period, reducing noise and helping determine whether a market is trending.")
+    st.write("Moving average smooths out price fluctuations by averaging prices over a set period, reducing noise and helping determine whether a market is trending, they smooth out price data to identify trends")
+    st.markdown("- **30-day MA** – Captures short-term price trends, helping in quick decision-making.")
+    st.markdown("- **60-day MA** – Balances short and medium-term trends, useful for identifying potential reversals.")
+    st.markdown("- **90-day MA** – Reflects long-term trends, providing a broader market perspective.")
     
     df_copy = data.copy()
     df_copy['Date'] = pd.to_datetime(df_copy['Date'])

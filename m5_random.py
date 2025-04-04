@@ -10,9 +10,20 @@ import streamlit as st
 def m5_random(data):
     #st.title("Random Forest Regression Model")
     st.markdown("<h1 style='color: cyan;'>Tree-Based & Ensemble Learning</h1>", unsafe_allow_html=True),
+    st.markdown("""
+    **Tree-Based Models**, like **Decision Trees**, work like flowcharts—splitting data into branches based on key conditions. They're easy to understand and great for making quick predictions based on historical patterns.
+    - **Random Forests** combine many decision trees to improve accuracy. Think of it as taking multiple expert opinions before making a financial decision—reduces overfitting and adds robustness.
+    - **Gradient Boosting Models** (like **XGBoost**) learn from mistakes by building trees one after another, each correcting the last. This makes them powerful and accurate for capturing complex stock price behaviors.
+    These models are especially helpful when the relationship between inputs (like time, volume, or technical indicators) and stock prices isn’t just a straight line.
+    """)
     st.markdown("<h3 style='color: cyan;'>M5: Random Forest Regression Model</h3>", unsafe_allow_html=True),
-    st.write("Random Forest is powerful for financial prediction models due to its ability to handle complex, non-linear data and prevent overfitting through ensemble learning. It can rank feature importance, making it useful for identifying key financial factors. Its robustness to missing data and non-linear relationships makes it versatile and accurate for tasks like stock price forecasting and risk assessment.")    
-    
+    st.markdown("""
+    Random Forest is an advanced version of Decision Trees. Instead of relying on a single tree, it creates **multiple decision trees** and combines their predictions for a more **stable and accurate** forecast.
+    - **Decision Trees** are simple and easy to interpret, but they can be sensitive to noise in the data, leading to overfitting.
+    - Handles **complex relationships** between stock prices and factors like volume, trends, and indicators.  
+    - **Reduces noise** by averaging multiple predictions, making it **less sensitive to sudden market swings**.  
+    - Works well even when data is missing or noisy.
+    """)
     df_copy = data.copy()
     df_copy['Date'] = pd.to_datetime(df_copy['Date'])
     df_copy.set_index('Date', inplace=True)

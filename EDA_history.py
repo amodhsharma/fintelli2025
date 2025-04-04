@@ -5,8 +5,9 @@ import pandas as pd
 @st.cache_data
 def eda_history(data):
     st.markdown("<h3 style='color: cyan;'>EDA: Time Series Plot</h3>", unsafe_allow_html=True),
-    st.write("Historical data plotting for opening and closing prices with opposed to Date, plotted below. Allows for an easier visualisation of the stock price movement over time.")
-
+    st.write("Time series plots are crucial for financial advisors and stock market analysts to visualize stock price movements over time. By identifying trends, seasonality, and irregular fluctuations, advisors can make data-driven investment decisions, predict future stock performance, and assess market behavior effectively.")
+    st. write("The below Graph shows the stock open and close prices over time.")
+    
     df_copy = data.copy()
     df_copy['Date'] = pd.to_datetime(df_copy['Date'])
     df_copy.set_index('Date', inplace=True)

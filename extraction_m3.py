@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 from statsmodels.tsa.arima.model import ARIMA
 from sklearn.metrics import mean_squared_error
+import streamlit as st
 
 @st.cache_data
 def extraction_m3(data, order=(6,1,0)):

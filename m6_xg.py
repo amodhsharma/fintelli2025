@@ -9,7 +9,13 @@ import plotly.graph_objects as go
 @st.cache_data
 def m6_xg(data, target_column='Close'):
     st.markdown("<h3 style='color: cyan;'>M6: XG Boost</h3>", unsafe_allow_html=True)
-    st.write("XGBoost is a gradient boosting framework that uses decision trees to create an ensemble model. It is known for its speed, performance, and ability to handle large datasets with high dimensionality.")
+    st.markdown("""
+    XGBoost (Extreme Gradient Boosting) is a powerful **machine learning algorithm** that builds multiple decision trees in sequence, where each tree **learns from the mistakes** of the previous one.
+    - **Super fast and efficient**: Works well even with large datasets.  
+    - **Handles missing data** and noisy stock market trends better than traditional models.  
+    - **Avoids overfitting** by optimizing tree growth and pruning unnecessary splits.
+    - Great for **short-term trading strategies**
+    """)
     
     df_copy = data.copy()
     df_copy['Date'] = pd.to_datetime(df_copy['Date'])

@@ -8,7 +8,7 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 @st.cache_data
 def m2_exponential(data):
     st.markdown("<h3 style='color: cyan;'>M2: Exponential Smoothing", unsafe_allow_html=True)
-    st.write("This section provides a detailed analysis of stock price forecasting using Exponential Smoothing methods.")
+    st.write("Exponential Smoothing is a forecasting technique that assigns decreasing weights to past observations, making it effective for predicting stock price trends. One may use it to identify moving trends with reduced noise and make strategic investment decisions.")
 
     df_copy = data.copy()
     df_copy['Date'] = pd.to_datetime(df_copy['Date'])

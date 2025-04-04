@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 from statsmodels.tsa.statespace.sarimax import SARIMAX
 from sklearn.metrics import mean_squared_error
+import streamlit as st
 
 @st.cache_data
 def extraction_m4(data, order=(1, 1, 1), seasonal_order=(1, 1, 1, 12)):
