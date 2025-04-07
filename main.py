@@ -5,6 +5,7 @@ import pandas as pd
 
 st.set_page_config(page_title="FINTELLI")
 st.title('Fintelli')
+st.write("Your very own technical analysis tool for stock market prediction")
 
 # ---------------------------------------------------------------
 
@@ -188,4 +189,12 @@ st.write(f"Weighted Score: `{score:.4f}`")
 
 with st.container():
     st.markdown("---")
-    st.markdown("<p style='text-align: center; color: gray;'>April 2025 Fintelli | Built with attention to detail and devotion using Streamlit</p>", unsafe_allow_html=True)
+    st.markdown("""
+    <p style='text-align: center; color: gray;'>
+        April 2025 Fintelli | Built with attention to detail and devotion using Streamlit | 
+        <a href="https://github.com/amodhsharma/fintelli2025" target="_blank" style="color: gray; text-decoration: none;">
+            Source Code
+        </a>
+    </p>
+    """, unsafe_allow_html=True)
+
